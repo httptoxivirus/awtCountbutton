@@ -1,0 +1,44 @@
+import java.awt.*;
+import java.awt.event.*;
+public class KunalDemo extends Frame implements ActionListener
+{
+	Label lb1, lblresult;
+	TextField tfCount;
+	Button btnCount;
+	int count = 0;
+	KunalDemo()
+	{
+		setTitle("Kunal");
+		setSize(250,250);
+		FlowLayout fl = new FlowLayout();
+		setLayout(fl);
+		tfCount = new TextField(10);
+		btnCount = new Button("Count");
+		lb1 = new Label("Counter -> ");
+		lblresult = new Label("                                  ");
+		add(lb1);
+		
+		add(btnCount);
+		add(lblresult);
+		addWindowListener(new WindowAdapter()
+	        {
+				public void windowClosing(WindowEvent e)
+				{
+					System.exit(0);
+				}
+		});
+		btnCount.addActionListener(this);
+		setVisible(true);
+	}
+	
+	public void actionPerformed(ActionEvent e)
+	{
+		++count;
+		lblresult.setText(count + "");
+	}
+
+	public static void main(String args[])
+	{
+		KunalDemo ob1 = new KunalDemo();
+	}
+}
